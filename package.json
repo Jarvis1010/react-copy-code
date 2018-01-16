@@ -1,6 +1,6 @@
 {
     "name": "react-copy-code",
-    "version": "1.0.0",
+    "version": "0.1.0",
     "description": "Tool to add a copy codeblock to clipboard",
     "main": "index.js",
     "scripts": {

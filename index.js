@@ -31,6 +31,7 @@ class CodeToClipboard extends React.Component {
   codeToClipboard = () => {
     const domNode = ReactDOM.findDOMNode(this);
     const nodes = domNode.querySelectorAll('pre code');
+    nodes.forEach(node => console.log(node));
   };
 
   render() {
