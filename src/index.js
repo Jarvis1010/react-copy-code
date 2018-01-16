@@ -1,28 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import DOM from 'react-dom-factories';
+import styled from 'styled-components';
+
+const baseStyle = `
+  & .clipWrapper{
+    display:flex;
+    flex-flow:column;
+    & button{
+      max-width:100px;
+    }
+  }
+`;
 
 class CodeToClipboard extends React.Component {
-  // static defaultProps = {
-  //   innerHTML: false,
-  //   className: null,
-  //   element: null,
-  // };
-
   componentDidMount() {
+    window.copyToClipBoard = node => {
+      const text = node.parentNode.querySelector('code').innerText;
+      let textarea = document.createElement('textarea');
+      textarea.id = 't';
+      textarea.style.height = 0;
+      document.body.appendChild(textarea);
+      textarea.value = text;
+      let selector = document.querySelector('#t');
+      selector.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+    };
     this.codeToClipboard();
-    // window.copyToClipBoard = e => {
-    //     const nodeToCopy = e.parentNode.querySelector('code');
-    //     let textarea = document.createElement('textarea');
-    //     textarea.id = 't';
-    //     textarea.style.height = 0;
-    //     document.body.appendChild(textarea);
-    //     textarea.value = nodeToCopy.innerText;
-    //     let selector = document.querySelector('#t');
-    //     selector.select();
-    //     document.execCommand('copy');
-    //     document.body.removeChild(textarea);
-    //   };
   }
 
   componentDidUpdate() {
@@ -31,32 +35,30 @@ class CodeToClipboard extends React.Component {
 
   codeToClipboard() {
     const domNode = ReactDOM.findDOMNode(this);
-    const nodes = domNode.querySelectorAll('pre');
-    nodes.forEach(node => console.log(node));
+    let nodes = domNode.querySelectorAll('pre');
+    nodes.forEach(node => {
+      const parent = node.parentNode;
+      const button = document.createElement('button');
+      const div = document.createElement('div');
+      div.className = 'clipWrapper';
+      button.innerText = 'Copy to Clipboard';
+      button.setAttribute('onclick', `copyToClipBoard(this)`);
+      div.appendChild(button);
+      div.appendChild(node.cloneNode(true));
+      parent.replaceChild(div, node);
+    });
   }
 
   render() {
-    const { children, className, element, innerHTML } = this.props;
-    let Element = element ? DOM[element] : null;
+    const { children, element, innerHTML } = this.props;
+    let Element = element
+      ? styled[element]`${baseStyle}`
+      : styled.div`${baseStyle}`;
 
     if (innerHTML) {
-      if (!Element) {
-        Element = DOM.div;
-      }
-
-      return Element(
-        {
-          dangerouslySetInnerHTML: { __html: children },
-          className: className || null,
-        },
-        null
-      );
+      return <Element dangerouslySetInnerHTML={{ __html: children }} />;
     } else {
-      if (Element) {
-        return Element({ className }, children);
-      } else {
-        return <pre><code className={className}>{children}</code></pre>;
-      }
+      return <Element>{children}</Element>;
     }
   }
 }
