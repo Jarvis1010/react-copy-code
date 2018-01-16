@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 class CodeToClipboard extends React.Component {
-  static defaultProps = {
-    innerHTML: false,
-    className: null,
-    element: null,
-  };
+  // static defaultProps = {
+  //   innerHTML: false,
+  //   className: null,
+  //   element: null,
+  // };
 
   componentDidMount() {
     this.codeToClipboard();
@@ -28,11 +28,11 @@ class CodeToClipboard extends React.Component {
     this.codeToClipboard();
   }
 
-  codeToClipboard = () => {
+  codeToClipboard() {
     const domNode = ReactDOM.findDOMNode(this);
     const nodes = domNode.querySelectorAll('pre code');
     //nodes.forEach(node => console.log(node));
-  };
+  }
 
   render() {
     const { children, className, element, innerHTML } = this.props;
