@@ -18,7 +18,10 @@
     ],
     "author": "'Justin Travis Mair'",
     "license": "MIT",
-    "dependencies": {},
+    "dependencies": {
+        "react": "^16.2.0",
+        "react-dom": "^16.2.0"
+    },
     "bugs": {
         "url": "https://github.com/Jarvis1010/react-copy-code/issues"
     },
