@@ -1,11 +1,12 @@
 {
     "name": "react-copy-code",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "description": "Tool to add a copy codeblock to clipboard",
-    "main": "index.js",
+    "main": "build/index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "components": "start-storybook -c ./.config/storybook -p 9999"
+        "start": "webpack --watch",
+        "build": "webpack"
     },
     "repository": {
         "type": "git",
@@ -20,37 +21,17 @@
     "author": "'Justin Travis Mair'",
     "license": "MIT",
     "devDependencies": {
-        "@kadira/storybook": "^2.35.3",
-        "autoprefixer": "^6.7.6",
-        "babel-core": "^6.23.1",
-        "babel-eslint": "^7.1.1",
-        "babel-loader": "^6.3.2",
-        "babel-plugin-css-modules-transform": "^1.2.1",
-        "babel-plugin-react-require": "^3.0.0",
-        "babel-preset-es2015": "^6.22.0",
-        "babel-preset-react": "^6.23.0",
-        "babel-preset-stage-2": "^6.22.0",
-        "css-loader": "^0.26.2",
-        "enzyme": "^2.7.0",
-        "eslint": "^3.16.1",
-        "eslint-plugin-react": "^6.10.0",
-        "extract-text-webpack-plugin": "^1.0.1",
-        "file-loader": "^0.10.1",
-        "null-loader": "^0.1.1",
-        "postcss-cssnext": "^2.9.0",
-        "postcss-import": "^9.1.0",
-        "postcss-loader": "^1.3.3",
-        "react-addons-test-utils": "^15.4.2",
-        "react-dom": "^15.4.2",
-        "style-loader": "^0.13.2",
-        "tap-spec": "^4.1.1",
-        "tape": "^4.6.3",
-        "webpack": "^1.14.0",
-        "webpack-node-externals": "^1.5.4"
+        "babel-cli": "^6.24.1",
+        "babel-core": "^6.24.1",
+        "babel-loader": "^7.0.0",
+        "babel-plugin-transform-object-rest-spread": "^6.23.0",
+        "babel-plugin-transform-react-jsx": "^6.24.1",
+        "babel-preset-env": "^1.5.1"
     },
     "dependencies": {
         "react": "^16.2.0",
-        "react-dom": "^16.2.0"
+        "react-dom": "^16.2.0",
+        "webpack": "^2.6.1"
     },
     "bugs": {
         "url": "https://github.com/Jarvis1010/react-copy-code/issues"
