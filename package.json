@@ -1,0 +1,27 @@
+{
+    "name": "react-copy-code",
+    "version": "1.0.0",
+    "description": "Tool to add a copy codeblock to clipboard",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Jarvis1010/react-copy-code.git"
+    },
+    "keywords": [
+        "component",
+        "react",
+        "copy",
+        "clipboard"
+    ],
+    "author": "'Justin Travis Mair'",
+    "license": "MIT",
+    "dependencies": {},
+    "bugs": {
+        "url": "https://github.com/Jarvis1010/react-copy-code/issues"
+    },
+    "homepage": "https://github.com/Jarvis1010/react-copy-code#readme",
+    "devDependencies": {}
+}
