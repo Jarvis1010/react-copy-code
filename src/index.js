@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import DOM from 'react-dom-factories';
 
 class CodeToClipboard extends React.Component {
   // static defaultProps = {
@@ -30,17 +31,17 @@ class CodeToClipboard extends React.Component {
 
   codeToClipboard() {
     const domNode = ReactDOM.findDOMNode(this);
-    const nodes = domNode.querySelectorAll('pre code');
-    //nodes.forEach(node => console.log(node));
+    const nodes = domNode.querySelectorAll('pre');
+    nodes.forEach(node => console.log(node));
   }
 
   render() {
     const { children, className, element, innerHTML } = this.props;
-    let Element = element ? React.DOM[element] : null;
+    let Element = element ? DOM[element] : null;
 
     if (innerHTML) {
       if (!Element) {
-        Element = React.DOM.div;
+        Element = DOM.div;
       }
 
       return Element(
