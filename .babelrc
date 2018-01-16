@@ -1,0 +1,46 @@
+{
+    "env": {
+        "production": {
+            "presets": [
+                "react-app",
+                "babili"
+            ],
+            "ignore": [
+                "**/*.story.js",
+                "**/*.test.js",
+                "**/tests/*",
+                "**/stories/*"
+            ]
+        },
+        "test": {
+            "presets": [
+                "react-app",
+                "babili"
+            ]
+        },
+        "cjs": {
+            "presets": [
+                [
+                    "env",
+                    {
+                        "targets": {
+                            "browsers": [
+                                "last 2 versions"
+                            ],
+                            "node": "current"
+                        }
+                    }
+                ],
+                "stage-2",
+                "react",
+                "babili"
+            ],
+            "ignore": [
+                "**/*.story.js",
+                "**/*.test.js",
+                "**/tests/*",
+                "**/stories/*"
+            ]
+        }
+    }
+}

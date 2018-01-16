@@ -18,6 +18,16 @@
     ],
     "author": "'Justin Travis Mair'",
     "license": "MIT",
+    "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-jest": "^20.0.3",
+        "babel-plugin-transform-es2015-modules-umd": "^6.24.1",
+        "babel-preset-babili": "^0.1.4",
+        "babel-preset-env": "^1.6.0",
+        "babel-preset-react": "^6.24.1",
+        "babel-preset-react-app": "^3.0.3",
+        "babel-preset-stage-2": "^6.24.1"
+    },
     "dependencies": {
         "react": "^16.2.0",
         "react-dom": "^16.2.0"
@@ -25,6 +35,5 @@
     "bugs": {
         "url": "https://github.com/Jarvis1010/react-copy-code/issues"
     },
-    "homepage": "https://github.com/Jarvis1010/react-copy-code#readme",
-    "devDependencies": {}
+    "homepage": "https://github.com/Jarvis1010/react-copy-code#readme"
 }
