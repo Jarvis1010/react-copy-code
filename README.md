@@ -42,3 +42,4 @@ In lieu of a formal styleguide, please format your code using 'prettier' prior t
 
 ## Release History
 * 1.0.0 Initial Stable Release
+* 1.0.1 Updated Documentation
