@@ -953,18 +953,18 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var baseStyle = '\n  & .clipWrapper{\n    display:flex;\n    flex-flow:column;\n    & pre{\n      margin-top:0;\n    }\n    & button{\n      max-width:150px;\n      height:auto;\n      border:none;\n      padding-bottom:0;\n      display:flex;\n      align-items:center;\n      & *{\n        margin:0 2px;\n        fill:currentColor\n      }\n    }\n  }\n';
+var baseStyle = '\n  & .clipWrapper{\n\n    display:flex;\n    flex-flow:column;\n\n    & pre{\n      margin-top:0;\n    }\n\n    & button{\n      max-width:150px;\n      height:auto;\n      border:none;\n      padding-bottom:0;\n      display:flex;\n      align-items:center;\n\n      & *{\n        margin:0 2px;\n        fill:currentColor\n      }\n    }\n  }\n';
 
-var CodeToClipboard = function (_React$Component) {
-  _inherits(CodeToClipboard, _React$Component);
+var CodeBlock = function (_React$Component) {
+  _inherits(CodeBlock, _React$Component);
 
-  function CodeToClipboard() {
-    _classCallCheck(this, CodeToClipboard);
+  function CodeBlock() {
+    _classCallCheck(this, CodeBlock);
 
-    return _possibleConstructorReturn(this, (CodeToClipboard.__proto__ || Object.getPrototypeOf(CodeToClipboard)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (CodeBlock.__proto__ || Object.getPrototypeOf(CodeBlock)).apply(this, arguments));
   }
 
-  _createClass(CodeToClipboard, [{
+  _createClass(CodeBlock, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
       window.copyToClipBoard = function (node) {
@@ -1053,17 +1053,17 @@ var CodeToClipboard = function (_React$Component) {
     }
   }]);
 
-  return CodeToClipboard;
+  return CodeBlock;
 }(_react2.default.Component);
 
-CodeToClipboard.defaultProps = {
+CodeBlock.defaultProps = {
   children: null,
   element: null,
   innerHtml: false,
   highlight: false
 };
 
-exports.default = CodeToClipboard;
+exports.default = CodeBlock;
 
 /***/ }),
 /* 16 */

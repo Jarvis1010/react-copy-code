@@ -6,11 +6,14 @@ import icon from './clipboardIcon';
 
 const baseStyle = `
   & .clipWrapper{
+
     display:flex;
     flex-flow:column;
+
     & pre{
       margin-top:0;
     }
+
     & button{
       max-width:150px;
       height:auto;
@@ -18,6 +21,7 @@ const baseStyle = `
       padding-bottom:0;
       display:flex;
       align-items:center;
+
       & *{
         margin:0 2px;
         fill:currentColor
@@ -26,7 +30,7 @@ const baseStyle = `
   }
 `;
 
-class CodeToClipboard extends React.Component {
+class CodeBlock extends React.Component {
   componentDidMount() {
     window.copyToClipBoard = node => {
       const text = node.parentNode.querySelector('code').innerText;
@@ -100,11 +104,11 @@ class CodeToClipboard extends React.Component {
   }
 }
 
-CodeToClipboard.defaultProps = {
+CodeBlock.defaultProps = {
   children: null,
   element: null,
   innerHtml: false,
   highlight: false,
 };
 
-export default CodeToClipboard;
+export default CodeBlock;
