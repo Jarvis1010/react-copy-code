@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import hljs from 'highlight.js';
 import styled from 'styled-components';
 import icon from './clipboardIcon';
 
@@ -39,11 +40,26 @@ class CodeToClipboard extends React.Component {
       document.execCommand('copy');
       document.body.removeChild(textarea);
     };
-    this.codeToClipboard();
+    this.updateComponent();
   }
 
   componentDidUpdate() {
+    this.updateComponent();
+  }
+
+  updateComponent() {
     this.codeToClipboard();
+    if (this.props.highlight) {
+      this.highlightCode();
+    }
+  }
+
+  highlightCode() {
+    const domNode = ReactDOM.findDOMNode(this);
+    let nodes = domNode.querySelectorAll('pre code');
+    nodes.forEach(node => {
+      hljs.highlightBlock(node);
+    });
   }
 
   codeToClipboard() {
