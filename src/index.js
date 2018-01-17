@@ -1,13 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
+import icon from './clipboardIcon';
 
 const baseStyle = `
   & .clipWrapper{
     display:flex;
     flex-flow:column;
+    & pre{
+      margin-top:0;
+    }
     & button{
-      max-width:100px;
+      max-width:150px;
+      height:auto;
+      border:none;
+      padding-bottom:0;
+      display:flex;
+      align-items:center;
+      & *{
+        margin:0 2px;
+        fill:currentColor
+      }
     }
   }
 `;
@@ -37,16 +50,24 @@ class CodeToClipboard extends React.Component {
     const domNode = ReactDOM.findDOMNode(this);
     let nodes = domNode.querySelectorAll('pre');
     nodes.forEach(node => {
+      const newNode = this.createNewNode(node);
       const parent = node.parentNode;
-      const button = document.createElement('button');
-      const div = document.createElement('div');
-      div.className = 'clipWrapper';
-      button.innerText = 'Copy to Clipboard';
-      button.setAttribute('onclick', `copyToClipBoard(this)`);
-      div.appendChild(button);
-      div.appendChild(node.cloneNode(true));
-      parent.replaceChild(div, node);
+      parent.replaceChild(newNode, node);
     });
+  }
+
+  createNewNode(node) {
+    const button = document.createElement('button');
+    const div = document.createElement('div');
+    const span = document.createElement('span');
+    div.className = 'clipWrapper';
+    span.innerText = 'Copy to Clipboard';
+    button.innerHTML = icon;
+    button.appendChild(span);
+    button.setAttribute('onclick', `copyToClipBoard(this)`);
+    div.appendChild(button);
+    div.appendChild(node.cloneNode(true));
+    return div;
   }
 
   render() {
@@ -62,5 +83,11 @@ class CodeToClipboard extends React.Component {
     }
   }
 }
+
+CodeToClipboard.defaultProps = {
+  children: null,
+  element: null,
+  innerHtml: false,
+};
 
 export default CodeToClipboard;

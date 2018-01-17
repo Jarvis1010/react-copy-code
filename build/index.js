@@ -935,6 +935,10 @@ var _styledComponents = __webpack_require__(26);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
+var _clipboardIcon = __webpack_require__(35);
+
+var _clipboardIcon2 = _interopRequireDefault(_clipboardIcon);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
@@ -945,7 +949,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var baseStyle = '\n  & .clipWrapper{\n    display:flex;\n    flex-flow:column;\n    & button{\n      max-width:100px;\n    }\n  }\n';
+var baseStyle = '\n  & .clipWrapper{\n    display:flex;\n    flex-flow:column;\n    & pre{\n      margin-top:0;\n    }\n    & button{\n      max-width:150px;\n      height:auto;\n      border:none;\n      padding-bottom:0;\n      display:flex;\n      align-items:center;\n      & *{\n        margin:0 2px;\n        fill:currentColor\n      }\n    }\n  }\n';
 
 var CodeToClipboard = function (_React$Component) {
   _inherits(CodeToClipboard, _React$Component);
@@ -981,19 +985,30 @@ var CodeToClipboard = function (_React$Component) {
   }, {
     key: 'codeToClipboard',
     value: function codeToClipboard() {
+      var _this2 = this;
+
       var domNode = _reactDom2.default.findDOMNode(this);
       var nodes = domNode.querySelectorAll('pre');
       nodes.forEach(function (node) {
+        var newNode = _this2.createNewNode(node);
         var parent = node.parentNode;
-        var button = document.createElement('button');
-        var div = document.createElement('div');
-        div.className = 'clipWrapper';
-        button.innerText = 'Copy to Clipboard';
-        button.setAttribute('onclick', 'copyToClipBoard(this)');
-        div.appendChild(button);
-        div.appendChild(node.cloneNode(true));
-        parent.replaceChild(div, node);
+        parent.replaceChild(newNode, node);
       });
+    }
+  }, {
+    key: 'createNewNode',
+    value: function createNewNode(node) {
+      var button = document.createElement('button');
+      var div = document.createElement('div');
+      var span = document.createElement('span');
+      div.className = 'clipWrapper';
+      span.innerText = 'Copy to Clipboard';
+      button.innerHTML = _clipboardIcon2.default;
+      button.appendChild(span);
+      button.setAttribute('onclick', 'copyToClipBoard(this)');
+      div.appendChild(button);
+      div.appendChild(node.cloneNode(true));
+      return div;
     }
   }, {
     key: 'render',
@@ -1019,6 +1034,12 @@ var CodeToClipboard = function (_React$Component) {
 
   return CodeToClipboard;
 }(_react2.default.Component);
+
+CodeToClipboard.defaultProps = {
+  children: null,
+  element: null,
+  innerHtml: false
+};
 
 exports.default = CodeToClipboard;
 
@@ -21121,6 +21142,20 @@ module.exports = function(originalModule) {
 	return module;
 };
 
+
+/***/ }),
+/* 35 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+var icon = "\n<svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\n\t width=\"28px\" height=\"32px\" viewBox=\"0 0 28 32\" enable-background=\"new 0 0 28 32\" xml:space=\"preserve\">\n<g>\n\t<path fill=\"currentColor\" d=\"M1.5,32h25c0.869,0,1.5-0.631,1.5-1.5v-28C28,1.631,27.369,1,26.5,1h-4C22.224,1,22,1.224,22,1.5\n\t\tS22.224,2,22.5,2h4C26.813,2,27,2.187,27,2.5v28c0,0.313-0.187,0.5-0.5,0.5h-25C1.187,31,1,30.813,1,30.5v-28\n\t\tC1,2.187,1.187,2,1.5,2h4C5.776,2,6,1.776,6,1.5S5.776,1,5.5,1h-4C0.631,1,0,1.631,0,2.5v28C0,31.369,0.631,32,1.5,32z\"/>\n\t<path fill=\"currentColor\" d=\"M5.5,5C5.776,5,6,4.776,6,4.5S5.776,4,5.5,4h-2C3.224,4,3,4.224,3,4.5v24C3,28.776,3.224,29,3.5,29h21\n\t\tc0.276,0,0.5-0.224,0.5-0.5v-24C25,4.224,24.776,4,24.5,4h-2C22.224,4,22,4.224,22,4.5S22.224,5,22.5,5H24v23H4V5H5.5z\"/>\n\t<path fill=\"currentColor\" d=\"M9,7h10c1.215,0,2-0.785,2-2V0.5C21,0.224,20.776,0,20.5,0h-13C7.224,0,7,0.224,7,0.5V5\n\t\tC7,6.215,7.785,7,9,7z M8,1h12v4c0,0.664-0.337,1-1,1H9C8.337,6,8,5.664,8,5V1z\"/>\n\t<path fill=\"currentColor\" d=\"M8.5,16h11c0.276,0,0.5-0.224,0.5-0.5S19.776,15,19.5,15h-11C8.224,15,8,15.224,8,15.5S8.224,16,8.5,16z\"/>\n\t<path fill=\"currentColor\" d=\"M8.5,12h11c0.276,0,0.5-0.224,0.5-0.5S19.776,11,19.5,11h-11C8.224,11,8,11.224,8,11.5S8.224,12,8.5,12z\"/>\n\t<path fill=\"currentColor\" d=\"M8.5,20h11c0.276,0,0.5-0.224,0.5-0.5S19.776,19,19.5,19h-11C8.224,19,8,19.224,8,19.5S8.224,20,8.5,20z\"/>\n\t<path fill=\"currentColor\" d=\"M8.5,24h11c0.276,0,0.5-0.224,0.5-0.5S19.776,23,19.5,23h-11C8.224,23,8,23.224,8,23.5S8.224,24,8.5,24z\"/>\n</g>\n</svg>\n";
+
+exports.default = icon;
 
 /***/ })
 /******/ ]);
