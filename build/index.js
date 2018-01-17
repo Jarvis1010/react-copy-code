@@ -1059,7 +1059,8 @@ var CodeToClipboard = function (_React$Component) {
 CodeToClipboard.defaultProps = {
   children: null,
   element: null,
-  innerHtml: false
+  innerHtml: false,
+  highlight: false
 };
 
 exports.default = CodeToClipboard;

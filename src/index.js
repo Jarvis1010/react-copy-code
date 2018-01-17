@@ -104,6 +104,7 @@ CodeToClipboard.defaultProps = {
   children: null,
   element: null,
   innerHtml: false,
+  highlight: false,
 };
 
 export default CodeToClipboard;
