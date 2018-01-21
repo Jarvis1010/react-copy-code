@@ -33,7 +33,7 @@ const App=()=>(
 | name       | type | default | description |
 | ----------- |:-----:|:--------:| ------------ |
 | element    | string         | "div"     | Allows you to specify which element the component renders as|
-| innerHtml | bool         | false | If this is set to true, it is expecting the html string to be passed as the only child.  **Warning**: uses dangerouslySetInnerHTML so be sure you trust the source |
+| innerHTML | bool         | false | If this is set to true, it is expecting the html string to be passed as the only child.  **Warning**: uses dangerouslySetInnerHTML so be sure you trust the source |
 | highlight   | bool    |  false  | If this is set to true, It will use highlight.js to add classes that correspond to highlight.js css theme.  Checkout [documentation](https://highlightjs.org/) for highlight.js for more details  |
  
 ## Contributing
@@ -42,4 +42,4 @@ In lieu of a formal styleguide, please format your code using 'prettier' prior t
 
 ## Release History
 * 1.0.0 Initial Stable Release
-* 1.0.1 Updated Documentation
+* 1.0.1 - 1.0.2 Updated Documentation
