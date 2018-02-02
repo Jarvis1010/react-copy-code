@@ -9,6 +9,11 @@ const baseStyle = `
 
     display:flex;
     flex-flow:column;
+    position:relative;
+
+    &:hover button{
+      display:flex;
+    }
 
     & pre{
       margin-top:0;
@@ -18,13 +23,20 @@ const baseStyle = `
       max-width:150px;
       height:auto;
       border:none;
-      padding-bottom:0;
-      display:flex;
+      display:none;
       align-items:center;
+      position:absolute;
+      top:0;
+      right:0;
+      padding:0.5em;
+      background:rgba(255,255,255,0.5);
 
       & *{
         margin:0 2px;
         fill:currentColor
+      }
+      & svg{
+        background:#eee;
       }
     }
   }
