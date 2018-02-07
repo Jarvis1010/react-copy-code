@@ -44,3 +44,4 @@ In lieu of a formal styleguide, please format your code using 'prettier' prior t
 * 1.0.0 Initial Stable Release
 * 1.0.1 - 1.0.3 Updated Documentation
 * 1.0.4 Update to be compatable with react 15.6
+* 1.0.5 Icon style fits on to one line
