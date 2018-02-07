@@ -37,6 +37,8 @@ const baseStyle = `
       }
       & svg{
         background:#eee;
+        height:22px;
+        width:auto;
       }
     }
   }
