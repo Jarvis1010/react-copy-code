@@ -42,4 +42,5 @@ In lieu of a formal styleguide, please format your code using 'prettier' prior t
 
 ## Release History
 * 1.0.0 Initial Stable Release
-* 1.0.1 - 1.0.2 Updated Documentation
+* 1.0.1 - 1.0.3 Updated Documentation
+* 1.0.4 Update to be compatable with react 15.6

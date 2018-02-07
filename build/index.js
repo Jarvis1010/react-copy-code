@@ -2992,10 +2992,13 @@ var baseStyle = '\n  & .clipWrapper{\n\n    display:flex;\n    flex-flow:column;
 var CodeBlock = function (_React$Component) {
   _inherits(CodeBlock, _React$Component);
 
-  function CodeBlock() {
+  function CodeBlock(props) {
     _classCallCheck(this, CodeBlock);
 
-    return _possibleConstructorReturn(this, (CodeBlock.__proto__ || Object.getPrototypeOf(CodeBlock)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (CodeBlock.__proto__ || Object.getPrototypeOf(CodeBlock)).call(this, props));
+
+    _this.handleRef = _this.handleRef.bind(_this);
+    return _this;
   }
 
   _createClass(CodeBlock, [{
@@ -3031,8 +3034,7 @@ var CodeBlock = function (_React$Component) {
   }, {
     key: 'highlightCode',
     value: function highlightCode() {
-      var domNode = _reactDom2.default.findDOMNode(this);
-      var nodes = domNode.querySelectorAll('pre code');
+      var nodes = this.node.querySelectorAll('pre code');
       nodes.forEach(function (node) {
         _highlight2.default.highlightBlock(node);
       });
@@ -3042,8 +3044,7 @@ var CodeBlock = function (_React$Component) {
     value: function codeToClipboard() {
       var _this2 = this;
 
-      var domNode = _reactDom2.default.findDOMNode(this);
-      var nodes = domNode.querySelectorAll('pre');
+      var nodes = this.node.querySelectorAll('pre');
       nodes.forEach(function (node) {
         var newNode = _this2.createNewNode(node);
         var parent = node.parentNode;
@@ -3066,6 +3067,11 @@ var CodeBlock = function (_React$Component) {
       return div;
     }
   }, {
+    key: 'handleRef',
+    value: function handleRef(node) {
+      this.node = node;
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _props = this.props,
@@ -3076,11 +3082,14 @@ var CodeBlock = function (_React$Component) {
       var Element = element !== '' ? _styledComponents2.default[element](_templateObject, baseStyle) : _styledComponents2.default.div(_templateObject, baseStyle);
 
       if (innerHTML) {
-        return _react2.default.createElement(Element, { dangerouslySetInnerHTML: { __html: children } });
+        return _react2.default.createElement(Element, {
+          innerRef: this.handleRef,
+          dangerouslySetInnerHTML: { __html: children }
+        });
       } else {
         return _react2.default.createElement(
           Element,
-          null,
+          { innerRef: this.handleRef },
           children
         );
       }

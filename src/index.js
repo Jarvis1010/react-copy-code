@@ -43,6 +43,11 @@ const baseStyle = `
 `;
 
 class CodeBlock extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleRef = this.handleRef.bind(this);
+  }
+
   componentDidMount() {
     window.copyToClipBoard = node => {
       const text = node.parentNode.querySelector('code').innerText;
@@ -71,16 +76,14 @@ class CodeBlock extends React.Component {
   }
 
   highlightCode() {
-    const domNode = ReactDOM.findDOMNode(this);
-    let nodes = domNode.querySelectorAll('pre code');
+    let nodes = this.node.querySelectorAll('pre code');
     nodes.forEach(node => {
       hljs.highlightBlock(node);
     });
   }
 
   codeToClipboard() {
-    const domNode = ReactDOM.findDOMNode(this);
-    let nodes = domNode.querySelectorAll('pre');
+    let nodes = this.node.querySelectorAll('pre');
     nodes.forEach(node => {
       const newNode = this.createNewNode(node);
       const parent = node.parentNode;
@@ -102,6 +105,10 @@ class CodeBlock extends React.Component {
     return div;
   }
 
+  handleRef(node) {
+    this.node = node;
+  }
+
   render() {
     const { children, element, innerHTML } = this.props;
     const Element = element !== ''
@@ -109,9 +116,14 @@ class CodeBlock extends React.Component {
       : styled.div`${baseStyle}`;
 
     if (innerHTML) {
-      return <Element dangerouslySetInnerHTML={{ __html: children }} />;
+      return (
+        <Element
+          innerRef={this.handleRef}
+          dangerouslySetInnerHTML={{ __html: children }}
+        />
+      );
     } else {
-      return <Element>{children}</Element>;
+      return <Element innerRef={this.handleRef}>{children}</Element>;
     }
   }
 }
