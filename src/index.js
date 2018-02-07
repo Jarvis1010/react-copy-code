@@ -28,7 +28,7 @@ const baseStyle = `
       position:absolute;
       top:0;
       right:0;
-      padding:0.5em;
+      padding:0.3em;
       background:rgba(255,255,255,0.5);
 
       & *{
@@ -98,7 +98,7 @@ class CodeBlock extends React.Component {
     const div = document.createElement('div');
     const span = document.createElement('span');
     div.className = 'clipWrapper';
-    span.innerText = 'Copy to Clipboard';
+    span.innerText = 'Copy';
     button.innerHTML = icon;
     button.appendChild(span);
     button.setAttribute('onclick', `copyToClipBoard(this)`);
