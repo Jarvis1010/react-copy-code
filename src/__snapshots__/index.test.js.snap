@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Copy to code Renders component with JSX 1`] = `
+<CodeBlock
+  element=""
+  highlight={false}
+  innerHtml={false}
+>
+  <styled.div
+    innerRef={[Function]}
+  >
+    <div
+      className="sc-bdVaJa knUAsi"
+    >
+      <JSXBlock
+        code="
+const greeting = (greet = 'Hello') => (name = 'World') => {
+    return greet + ' ' + name + '!';
+  };
+"
+      >
+        <pre>
+          <code>
+            
+const greeting = (greet = 'Hello') =&gt; (name = 'World') =&gt; {
+    return greet + ' ' + name + '!';
+  };
+
+          </code>
+        </pre>
+      </JSXBlock>
+    </div>
+  </styled.div>
+</CodeBlock>
+`;
+
+exports[`Copy to code Renders component with highlight 1`] = `
+<CodeBlock
+  element=""
+  highlight={true}
+  innerHtml={false}
+>
+  <styled.div
+    innerRef={[Function]}
+  >
+    <div
+      className="sc-htpNat icoewt"
+    >
+      <JSXBlock
+        code="
+const greeting = (greet = 'Hello') => (name = 'World') => {
+    return greet + ' ' + name + '!';
+  };
+"
+      >
+        <pre>
+          <code>
+            
+const greeting = (greet = 'Hello') =&gt; (name = 'World') =&gt; {
+    return greet + ' ' + name + '!';
+  };
+
+          </code>
+        </pre>
+      </JSXBlock>
+    </div>
+  </styled.div>
+</CodeBlock>
+`;
+
+exports[`Copy to code Renders component with innerHtml 1`] = `
+<CodeBlock
+  element=""
+  highlight={false}
+  innerHtml={true}
+>
+  <styled.div
+    innerRef={[Function]}
+  >
+    <div
+      className="sc-bwzfXH jIggJF"
+    >
+      &lt;pre&gt;&lt;code&gt;
+const greeting = (greet = 'Hello') =&gt; (name = 'World') =&gt; {
+    return greet + ' ' + name + '!';
+  };
+&lt;/code&gt;&lt;/pre&gt;
+    </div>
+  </styled.div>
+</CodeBlock>
+`;
