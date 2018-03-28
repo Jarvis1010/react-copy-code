@@ -2,7 +2,7 @@
 
 exports[`Copy to code Renders component with JSX 1`] = `
 <CodeBlock
-  element=""
+  element="div"
   highlight={false}
   innerHtml={false}
 >
@@ -36,7 +36,7 @@ const greeting = (greet = 'Hello') =&gt; (name = 'World') =&gt; {
 
 exports[`Copy to code Renders component with highlight 1`] = `
 <CodeBlock
-  element=""
+  element="div"
   highlight={true}
   innerHtml={false}
 >
@@ -44,7 +44,7 @@ exports[`Copy to code Renders component with highlight 1`] = `
     innerRef={[Function]}
   >
     <div
-      className="sc-htpNat icoewt"
+      className="sc-bwzfXH jIggJF"
     >
       <JSXBlock
         code="
@@ -68,9 +68,9 @@ const greeting = (greet = 'Hello') =&gt; (name = 'World') =&gt; {
 </CodeBlock>
 `;
 
-exports[`Copy to code Renders component with innerHtml 1`] = `
+exports[`Copy to code with innerHtml Renders component 1`] = `
 <CodeBlock
-  element=""
+  element="div"
   highlight={false}
   innerHtml={true}
 >
@@ -78,7 +78,29 @@ exports[`Copy to code Renders component with innerHtml 1`] = `
     innerRef={[Function]}
   >
     <div
-      className="sc-bwzfXH jIggJF"
+      className="sc-bZQynM eegEpH"
+    >
+      &lt;pre&gt;&lt;code&gt;
+const greeting = (greet = 'Hello') =&gt; (name = 'World') =&gt; {
+    return greet + ' ' + name + '!';
+  };
+&lt;/code&gt;&lt;/pre&gt;
+    </div>
+  </styled.div>
+</CodeBlock>
+`;
+
+exports[`Copy to code with innerHtml Renders component with highlight 1`] = `
+<CodeBlock
+  element="div"
+  highlight={true}
+  innerHtml={true}
+>
+  <styled.div
+    innerRef={[Function]}
+  >
+    <div
+      className="sc-gzVnrw bnHlRy"
     >
       &lt;pre&gt;&lt;code&gt;
 const greeting = (greet = 'Hello') =&gt; (name = 'World') =&gt; {

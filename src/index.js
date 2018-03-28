@@ -113,7 +113,7 @@ class CodeBlock extends React.Component {
 
   render() {
     const { children, element, innerHTML } = this.props;
-    const Element = element !== ''
+    const Element = styled[element]
       ? styled[element]`${baseStyle}`
       : styled.div`${baseStyle}`;
 
@@ -132,7 +132,7 @@ class CodeBlock extends React.Component {
 
 CodeBlock.defaultProps = {
   children: null,
-  element: '',
+  element: 'div',
   innerHtml: false,
   highlight: false,
 };
