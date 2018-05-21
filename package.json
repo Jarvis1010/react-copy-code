@@ -1,53 +1,54 @@
 {
-    "name": "react-copy-code",
-    "version": "1.0.6",
-    "description": "Tool to add a copy codeblock to clipboard",
-    "main": "build/index.js",
-    "scripts": {
-        "test": "jest --watch --notify",
-        "start": "webpack --watch",
-        "build": "webpack"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/Jarvis1010/react-copy-code.git"
-    },
-    "keywords": [
-        "component",
-        "react",
-        "copy",
-        "clipboard"
-    ],
-    "author": "Justin Travis Mair",
-    "license": "MIT",
-    "devDependencies": {
-        "babel-cli": "^6.24.1",
-        "babel-core": "^6.24.1",
-        "babel-loader": "^7.0.0",
-        "babel-plugin-transform-class-properties": "^6.24.1",
-        "babel-plugin-transform-object-rest-spread": "^6.23.0",
-        "babel-plugin-transform-react-jsx": "^6.24.1",
-        "babel-preset-env": "^1.5.1",
-        "enzyme": "^3.3.0",
-        "enzyme-adapter-react-16": "^1.1.1",
-        "enzyme-to-json": "^3.3.3",
-        "jest": "^22.4.3",
-        "jsdom": "^11.6.2",
-        "react-addons-test-utils": "^15.6.2",
-        "react-test-renderer": "^16.2.0"
-    },
-    "peerDependencies": {
-        "react": "^15.6.0"
-    },
-    "dependencies": {
-        "highlight.js": "^9.12.0",
-        "react": "^16.2.0",
-        "react-dom": "^16.2.0",
-        "styled-components": "^2.4.0",
-        "webpack": "^2.6.1"
-    },
-    "bugs": {
-        "url": "https://github.com/Jarvis1010/react-copy-code/issues"
-    },
-    "homepage": "https://github.com/Jarvis1010/react-copy-code#readme"
+  "name": "react-copy-code",
+  "version": "1.0.6",
+  "description": "Tool to add a copy codeblock to clipboard",
+  "main": "build/index.js",
+  "scripts": {
+    "test": "jest --watch --notify",
+    "start": "webpack --watch",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jarvis1010/react-copy-code.git"
+  },
+  "keywords": [
+    "component",
+    "react",
+    "copy",
+    "clipboard"
+  ],
+  "author": "Justin Travis Mair",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.5.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.3",
+    "jest": "^22.4.3",
+    "jsdom": "^11.6.2",
+    "react-addons-test-utils": "^15.6.2",
+    "react-test-renderer": "^16.2.0"
+  },
+  "peerDependencies": {
+    "react": ">=15.6.0"
+  },
+  "dependencies": {
+    "highlight.js": "^9.12.0",
+    "jest-styled-components": "^5.0.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "styled-components": "^2.4.0",
+    "webpack": "^2.6.1"
+  },
+  "bugs": {
+    "url": "https://github.com/Jarvis1010/react-copy-code/issues"
+  },
+  "homepage": "https://github.com/Jarvis1010/react-copy-code#readme"
 }

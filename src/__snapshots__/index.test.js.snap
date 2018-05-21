@@ -1,6 +1,55 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Copy to code Renders component with JSX 1`] = `
+.c0 .clipWrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: column;
+  -ms-flex-flow: column;
+  flex-flow: column;
+  position: relative;
+}
+
+.c0 .clipWrapper:hover button {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c0 .clipWrapper pre {
+  margin-top: 0;
+}
+
+.c0 .clipWrapper button {
+  max-width: 150px;
+  height: auto;
+  border: none;
+  display: none;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.3em;
+  background: rgba(255,255,255,0.5);
+}
+
+.c0 .clipWrapper button * {
+  margin: 0 2px;
+  fill: currentColor;
+}
+
+.c0 .clipWrapper button svg {
+  background: #eee;
+  height: 22px;
+  width: auto;
+}
+
 <CodeBlock
   element="div"
   highlight={false}
@@ -10,7 +59,7 @@ exports[`Copy to code Renders component with JSX 1`] = `
     innerRef={[Function]}
   >
     <div
-      className="sc-bdVaJa knUAsi"
+      className="c0"
     >
       <JSXBlock
         code="
@@ -35,6 +84,55 @@ const greeting = (greet = 'Hello') =&gt; (name = 'World') =&gt; {
 `;
 
 exports[`Copy to code Renders component with highlight 1`] = `
+.c0 .clipWrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: column;
+  -ms-flex-flow: column;
+  flex-flow: column;
+  position: relative;
+}
+
+.c0 .clipWrapper:hover button {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c0 .clipWrapper pre {
+  margin-top: 0;
+}
+
+.c0 .clipWrapper button {
+  max-width: 150px;
+  height: auto;
+  border: none;
+  display: none;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.3em;
+  background: rgba(255,255,255,0.5);
+}
+
+.c0 .clipWrapper button * {
+  margin: 0 2px;
+  fill: currentColor;
+}
+
+.c0 .clipWrapper button svg {
+  background: #eee;
+  height: 22px;
+  width: auto;
+}
+
 <CodeBlock
   element="div"
   highlight={true}
@@ -44,7 +142,7 @@ exports[`Copy to code Renders component with highlight 1`] = `
     innerRef={[Function]}
   >
     <div
-      className="sc-bwzfXH jIggJF"
+      className="c0"
     >
       <JSXBlock
         code="
@@ -69,6 +167,55 @@ const greeting = (greet = 'Hello') =&gt; (name = 'World') =&gt; {
 `;
 
 exports[`Copy to code with innerHtml Renders component 1`] = `
+.c0 .clipWrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: column;
+  -ms-flex-flow: column;
+  flex-flow: column;
+  position: relative;
+}
+
+.c0 .clipWrapper:hover button {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c0 .clipWrapper pre {
+  margin-top: 0;
+}
+
+.c0 .clipWrapper button {
+  max-width: 150px;
+  height: auto;
+  border: none;
+  display: none;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.3em;
+  background: rgba(255,255,255,0.5);
+}
+
+.c0 .clipWrapper button * {
+  margin: 0 2px;
+  fill: currentColor;
+}
+
+.c0 .clipWrapper button svg {
+  background: #eee;
+  height: 22px;
+  width: auto;
+}
+
 <CodeBlock
   element="div"
   highlight={false}
@@ -78,7 +225,7 @@ exports[`Copy to code with innerHtml Renders component 1`] = `
     innerRef={[Function]}
   >
     <div
-      className="sc-bZQynM eegEpH"
+      className="c0"
     >
       &lt;pre&gt;&lt;code&gt;
 const greeting = (greet = 'Hello') =&gt; (name = 'World') =&gt; {
@@ -91,6 +238,55 @@ const greeting = (greet = 'Hello') =&gt; (name = 'World') =&gt; {
 `;
 
 exports[`Copy to code with innerHtml Renders component with highlight 1`] = `
+.c0 .clipWrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: column;
+  -ms-flex-flow: column;
+  flex-flow: column;
+  position: relative;
+}
+
+.c0 .clipWrapper:hover button {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c0 .clipWrapper pre {
+  margin-top: 0;
+}
+
+.c0 .clipWrapper button {
+  max-width: 150px;
+  height: auto;
+  border: none;
+  display: none;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.3em;
+  background: rgba(255,255,255,0.5);
+}
+
+.c0 .clipWrapper button * {
+  margin: 0 2px;
+  fill: currentColor;
+}
+
+.c0 .clipWrapper button svg {
+  background: #eee;
+  height: 22px;
+  width: auto;
+}
+
 <CodeBlock
   element="div"
   highlight={true}
@@ -100,7 +296,7 @@ exports[`Copy to code with innerHtml Renders component with highlight 1`] = `
     innerRef={[Function]}
   >
     <div
-      className="sc-gzVnrw bnHlRy"
+      className="c0"
     >
       &lt;pre&gt;&lt;code&gt;
 const greeting = (greet = 'Hello') =&gt; (name = 'World') =&gt; {

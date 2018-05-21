@@ -1,8 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import hljs from 'highlight.js';
-import styled from 'styled-components';
-import icon from './clipboardIcon';
+import React from "react";
+import { renderToString } from "react-dom/server";
+import hljs from "highlight.js";
+import styled from "styled-components";
+import icon from "./clipboardIcon";
 
 const baseStyle = `
   & .clipWrapper{
@@ -52,15 +52,15 @@ class CodeBlock extends React.Component {
 
   componentDidMount() {
     window.copyToClipBoard = node => {
-      const text = node.parentNode.querySelector('code').innerText;
-      let textarea = document.createElement('textarea');
-      textarea.id = 't';
+      const text = node.parentNode.querySelector("code").innerText;
+      let textarea = document.createElement("textarea");
+      textarea.id = "t";
       textarea.style.height = 0;
       document.body.appendChild(textarea);
       textarea.value = text;
-      let selector = document.querySelector('#t');
+      let selector = document.querySelector("#t");
       selector.select();
-      document.execCommand('copy');
+      document.execCommand("copy");
       document.body.removeChild(textarea);
     };
     this.updateComponent();
@@ -78,14 +78,14 @@ class CodeBlock extends React.Component {
   }
 
   highlightCode() {
-    let nodes = this.node.querySelectorAll('pre code');
+    let nodes = this.node.querySelectorAll("pre code");
     nodes.forEach(node => {
       hljs.highlightBlock(node);
     });
   }
 
   codeToClipboard() {
-    let nodes = this.node.querySelectorAll('pre');
+    let nodes = this.node.querySelectorAll("pre");
     nodes.forEach(node => {
       const newNode = this.createNewNode(node);
       const parent = node.parentNode;
@@ -94,14 +94,17 @@ class CodeBlock extends React.Component {
   }
 
   createNewNode(node) {
-    const button = document.createElement('button');
-    const div = document.createElement('div');
-    const span = document.createElement('span');
-    div.className = 'clipWrapper';
-    span.innerText = 'Copy';
-    button.innerHTML = icon;
+    const { svg: SVG } = this.props;
+    console.log(renderToString(<SVG />));
+    const iconToRender = icon; //svg ? renderToString(<SVG />) : icon;
+    const button = document.createElement("button");
+    const div = document.createElement("div");
+    const span = document.createElement("span");
+    div.className = "clipWrapper";
+    span.innerText = "Copy";
+    button.innerHTML = iconToRender;
     button.appendChild(span);
-    button.setAttribute('onclick', `copyToClipBoard(this)`);
+    button.setAttribute("onclick", `copyToClipBoard(this)`);
     div.appendChild(button);
     div.appendChild(node.cloneNode(true));
     return div;
@@ -114,8 +117,12 @@ class CodeBlock extends React.Component {
   render() {
     const { children, element, innerHTML } = this.props;
     const Element = styled[element]
-      ? styled[element]`${baseStyle}`
-      : styled.div`${baseStyle}`;
+      ? styled[element]`
+          ${baseStyle};
+        `
+      : styled.div`
+          ${baseStyle};
+        `;
 
     if (innerHTML) {
       return (
@@ -132,9 +139,9 @@ class CodeBlock extends React.Component {
 
 CodeBlock.defaultProps = {
   children: null,
-  element: 'div',
+  element: "div",
   innerHtml: false,
-  highlight: false,
+  highlight: false
 };
 
 export default CodeBlock;
