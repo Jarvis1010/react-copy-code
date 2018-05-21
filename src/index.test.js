@@ -78,18 +78,12 @@ describe("Copy to code", () => {
   });
 
   it("adds custom svg icon", () => {
-    const SVG = (
-      <svg
-        fill="currentColor"
-        preserveAspectRatio="xMidYMid meet"
-        height="1em"
-        width="1em"
-        viewBox="0 0 40 40"
-        style="vertical-align:middle"
-        data-reactroot=""
-      >
+    const testString =
+      "m20.1 13.9l4.5 6.8h-8.9z m8.2 11.8h2.1l-10.3-15.4-10.2 15.4h2.1l2.3-3.6h11.7z m9-5.7q0 4.7-2.3 8.6t-6.3 6.2-8.6 2.3-8.6-2.3-6.2-6.2-2.3-8.6 2.3-8.6 6.2-6.2 8.6-2.3 8.6 2.3 6.3 6.2 2.3 8.6z";
+    const SVG = () => (
+      <svg>
         <g>
-          <path d="m20.1 13.9l4.5 6.8h-8.9z m8.2 11.8h2.1l-10.3-15.4-10.2 15.4h2.1l2.3-3.6h11.7z m9-5.7q0 4.7-2.3 8.6t-6.3 6.2-8.6 2.3-8.6-2.3-6.2-6.2-2.3-8.6 2.3-8.6 6.2-6.2 8.6-2.3 8.6 2.3 6.3 6.2 2.3 8.6z" />
+          <path d={testString} />
         </g>
       </svg>
     );
@@ -99,7 +93,8 @@ describe("Copy to code", () => {
       </CodeBlock>
     );
     const html = wrapper.html();
-    expect(wrapper.contains(SVG)).toBe(true);
+    console.log(html);
+    expect(new RegExp(testString, "g").test(html)).toBe(true);
   });
 });
 

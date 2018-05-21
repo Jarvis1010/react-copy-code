@@ -95,8 +95,7 @@ class CodeBlock extends React.Component {
 
   createNewNode(node) {
     const { svg: SVG } = this.props;
-    console.log(renderToString(<SVG />));
-    const iconToRender = icon; //svg ? renderToString(<SVG />) : icon;
+    const iconToRender = SVG ? renderToString(<SVG />) : icon;
     const button = document.createElement("button");
     const div = document.createElement("div");
     const span = document.createElement("span");
