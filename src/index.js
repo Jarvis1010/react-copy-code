@@ -79,14 +79,18 @@ class CodeBlock extends React.Component {
 
   highlightCode() {
     let nodes = this.node.querySelectorAll("pre code");
-    nodes.forEach(node => {
+    // Use Array.from(nodeList) to support forEach on older
+    // browsers.
+    Array.from(nodes).forEach(node => {
       hljs.highlightBlock(node);
     });
   }
 
   codeToClipboard() {
     let nodes = this.node.querySelectorAll("pre");
-    nodes.forEach(node => {
+    // Use Array.from(nodeList) to support forEach on older
+    // browsers.
+    Array.from(nodes).forEach(node => {
       const newNode = this.createNewNode(node);
       const parent = node.parentNode;
       parent.replaceChild(newNode, node);
