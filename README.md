@@ -46,6 +46,7 @@ In lieu of a formal styleguide, please format your code using 'prettier' prior t
 
 ## Release History
 
+* 1.1.1 Update capabilities for older browsers(PR from absoludity)
 * 1.1.0 Custom SVG Icon can be passed as the button icon
 * 1.0.6 Reduce Button Real estate
 * 1.0.5 Icon style fits on to one line

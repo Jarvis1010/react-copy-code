@@ -1,10 +1,10 @@
 {
   "name": "react-copy-code",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Tool to add a copy codeblock to clipboard",
   "main": "build/index.js",
   "scripts": {
-    "test": "jest --watch --notify",
+    "test": "jest --watch",
     "start": "webpack --watch",
     "build": "webpack"
   },
@@ -12,7 +12,12 @@
     "type": "git",
     "url": "git+https://github.com/Jarvis1010/react-copy-code.git"
   },
-  "keywords": ["component", "react", "copy", "clipboard"],
+  "keywords": [
+    "component",
+    "react",
+    "copy",
+    "clipboard"
+  ],
   "author": "Justin Travis Mair",
   "license": "MIT",
   "devDependencies": {
@@ -26,10 +31,11 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "enzyme-to-json": "^3.3.4",
-    "jest": "^22.4.4",
+    "jest": "^23.0.0",
     "jsdom": "^11.10.0",
     "react-addons-test-utils": "^15.6.2",
-    "react-test-renderer": "^16.3.2"
+    "react-test-renderer": "^16.3.2",
+    "regenerator-runtime": "^0.11.1"
   },
   "peerDependencies": {
     "react": ">=15.6.0"
