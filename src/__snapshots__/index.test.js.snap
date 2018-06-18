@@ -54,6 +54,7 @@ exports[`Copy to code Renders component with JSX 1`] = `
   element="div"
   highlight={false}
   innerHtml={false}
+  onCopy={[Function]}
 >
   <styled.div
     innerRef={[Function]}
@@ -137,6 +138,7 @@ exports[`Copy to code Renders component with highlight 1`] = `
   element="div"
   highlight={true}
   innerHtml={false}
+  onCopy={[Function]}
 >
   <styled.div
     innerRef={[Function]}
@@ -220,6 +222,7 @@ exports[`Copy to code with innerHtml Renders component 1`] = `
   element="div"
   highlight={false}
   innerHtml={true}
+  onCopy={[Function]}
 >
   <styled.div
     innerRef={[Function]}
@@ -291,6 +294,7 @@ exports[`Copy to code with innerHtml Renders component with highlight 1`] = `
   element="div"
   highlight={true}
   innerHtml={true}
+  onCopy={[Function]}
 >
   <styled.div
     innerRef={[Function]}

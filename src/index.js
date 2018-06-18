@@ -51,8 +51,11 @@ class CodeBlock extends React.Component {
   }
 
   componentDidMount() {
+    const { onCopy } = this.props;
     window.copyToClipBoard = node => {
-      const text = node.parentNode.querySelector("code").innerText;
+      node = node ? node : {};
+      const text =
+        node.parentNode && node.parentNode.querySelector("code").innerText;
       let textarea = document.createElement("textarea");
       textarea.id = "t";
       textarea.style.height = 0;
@@ -60,14 +63,21 @@ class CodeBlock extends React.Component {
       textarea.value = text;
       let selector = document.querySelector("#t");
       selector.select();
-      document.execCommand("copy");
+      if (document.execCommand) {
+        document.execCommand("copy");
+      }
       document.body.removeChild(textarea);
+      onCopy();
     };
     this.updateComponent();
   }
 
   componentDidUpdate() {
     this.updateComponent();
+  }
+
+  componentWillUnmount() {
+    window.copyToClipBoard = undefined;
   }
 
   updateComponent() {
@@ -142,7 +152,8 @@ CodeBlock.defaultProps = {
   children: null,
   element: "div",
   innerHtml: false,
-  highlight: false
+  highlight: false,
+  onCopy: () => null
 };
 
 export default CodeBlock;

@@ -2740,8 +2740,11 @@ var CodeBlock = function (_React$Component) {
   _createClass(CodeBlock, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      var onCopy = this.props.onCopy;
+
       window.copyToClipBoard = function (node) {
-        var text = node.parentNode.querySelector("code").innerText;
+        node = node ? node : {};
+        var text = node.parentNode && node.parentNode.querySelector("code").innerText;
         var textarea = document.createElement("textarea");
         textarea.id = "t";
         textarea.style.height = 0;
@@ -2749,8 +2752,11 @@ var CodeBlock = function (_React$Component) {
         textarea.value = text;
         var selector = document.querySelector("#t");
         selector.select();
-        document.execCommand("copy");
+        if (document.execCommand) {
+          document.execCommand("copy");
+        }
         document.body.removeChild(textarea);
+        onCopy();
       };
       this.updateComponent();
     }
@@ -2758,6 +2764,11 @@ var CodeBlock = function (_React$Component) {
     key: "componentDidUpdate",
     value: function componentDidUpdate() {
       this.updateComponent();
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      window.copyToClipBoard = undefined;
     }
   }, {
     key: "updateComponent",
@@ -2844,7 +2855,10 @@ CodeBlock.defaultProps = {
   children: null,
   element: "div",
   innerHtml: false,
-  highlight: false
+  highlight: false,
+  onCopy: function onCopy() {
+    return null;
+  }
 };
 
 exports.default = CodeBlock;

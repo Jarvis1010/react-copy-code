@@ -1,4 +1,5 @@
 import React from "react";
+import sinon from "sinon";
 import toJSON from "enzyme-to-json";
 import { shallow, mount, render } from "enzyme";
 import CodeBlock from "./index";
@@ -26,6 +27,7 @@ describe("Copy to code", () => {
       </CodeBlock>
     );
     expect(toJSON(wrapper)).toMatchSnapshot();
+    wrapper.unmount();
   });
 
   it("Renders component with highlight", () => {
@@ -35,6 +37,7 @@ describe("Copy to code", () => {
       </CodeBlock>
     );
     expect(toJSON(wrapper)).toMatchSnapshot();
+    wrapper.unmount();
   });
 
   it("Renders custom element", () => {
@@ -45,6 +48,7 @@ describe("Copy to code", () => {
     );
     const html = wrapper.html();
     expect(html.indexOf("span")).toBe(1);
+    wrapper.unmount();
   });
 
   it("Renders div if incorrect prop", () => {
@@ -55,6 +59,7 @@ describe("Copy to code", () => {
     );
     const html = wrapper.html();
     expect(html.indexOf("div")).toBe(1);
+    wrapper.unmount();
   });
 
   it("adds a div wrapper around pre code block", () => {
@@ -65,6 +70,7 @@ describe("Copy to code", () => {
     );
     const html = wrapper.html();
     expect(/class=\"clipWrapper\"/.test(html)).toBe(true);
+    wrapper.unmount();
   });
 
   it("adds a button sibling to pre code block", () => {
@@ -75,6 +81,7 @@ describe("Copy to code", () => {
     );
     const html = wrapper.html();
     expect(/button/.test(html)).toBe(true);
+    wrapper.unmount();
   });
 
   it("adds custom svg icon", () => {
@@ -93,8 +100,22 @@ describe("Copy to code", () => {
       </CodeBlock>
     );
     const html = wrapper.html();
-    console.log(html);
+
     expect(new RegExp(testString, "g").test(html)).toBe(true);
+    wrapper.unmount();
+  });
+
+  it("calls onCopy function", () => {
+    const spy = sinon.spy();
+    const wrapper = mount(
+      <CodeBlock onCopy={spy}>
+        <JSXBlock code={code} />
+      </CodeBlock>
+    );
+
+    window.copyToClipBoard();
+    expect(spy.calledOnce).toBe(true);
+    wrapper.unmount();
   });
 });
 
@@ -102,6 +123,7 @@ describe("Copy to code with innerHtml", () => {
   it("Renders component", () => {
     const wrapper = mount(<CodeBlock innerHtml>{stringBlock}</CodeBlock>);
     expect(toJSON(wrapper)).toMatchSnapshot();
+    wrapper.unmount();
   });
 
   it("Renders component with highlight", () => {
@@ -111,5 +133,6 @@ describe("Copy to code with innerHtml", () => {
       </CodeBlock>
     );
     expect(toJSON(wrapper)).toMatchSnapshot();
+    wrapper.unmount();
   });
 });
