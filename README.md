@@ -8,7 +8,7 @@ react-copy-code is a component that will add a "copy to clipboard" button to 'pr
 
 ## Usage
 
-```
+```javascript
 import CodeBlock from 'react-copy-code';
 
 const App = () => (
@@ -21,7 +21,7 @@ const App = () => (
 
 or
 
-```
+```javascript
 import CodeBlock from 'react-copy-code';
 
 const App = () => (
@@ -47,6 +47,7 @@ In lieu of a formal styleguide, please format your code using 'prettier' prior t
 
 ## Release History
 
+- 1.2.1 Remove webpack as dependancy and put it as a dev dependancy like it was always supposed to be
 - 1.2.0 onCopy prop that allows you to pass a function to run when the `copy button` is clicked
 - 1.1.1 Update capabilities for older browsers(PR from absoludity)
 - 1.1.0 Custom SVG Icon can be passed as the button icon
