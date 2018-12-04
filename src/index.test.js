@@ -61,7 +61,6 @@ describe("Copy to code", () => {
     expect(html.indexOf("div")).toBe(1);
     wrapper.unmount();
   });
-
   it("adds a div wrapper around pre code block", () => {
     const wrapper = mount(
       <CodeBlock>

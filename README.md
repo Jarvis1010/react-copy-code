@@ -47,6 +47,7 @@ In lieu of a formal styleguide, please format your code using 'prettier' prior t
 
 ## Release History
 
+- 2.0.0 Update to latest version of react
 - 1.2.2 Remove react and react-dom as dependancy and put it as a peer-dependancy
 - 1.2.1 Remove webpack as dependancy and put it as a dev dependancy like it was always supposed to be
 - 1.2.0 onCopy prop that allows you to pass a function to run when the `copy button` is clicked

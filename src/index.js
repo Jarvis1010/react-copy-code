@@ -4,41 +4,40 @@ import hljs from "highlight.js";
 import styled from "styled-components";
 import icon from "./clipboardIcon";
 
-const baseStyle = `
-  & .clipWrapper{
+const Element = styled.div`
+  & .clipWrapper {
+    display: flex;
+    flex-flow: column;
+    position: relative;
 
-    display:flex;
-    flex-flow:column;
-    position:relative;
-
-    &:hover button{
-      display:flex;
+    &:hover button {
+      display: flex;
     }
 
-    & pre{
-      margin-top:0;
+    & pre {
+      margin-top: 0;
     }
 
-    & button{
-      max-width:150px;
-      height:auto;
-      border:none;
-      display:none;
-      align-items:center;
-      position:absolute;
-      top:0;
-      right:0;
-      padding:0.3em;
-      background:rgba(255,255,255,0.5);
+    & button {
+      max-width: 150px;
+      height: auto;
+      border: none;
+      display: none;
+      align-items: center;
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 0.3em;
+      background: rgba(255, 255, 255, 0.5);
 
-      & *{
-        margin:0 2px;
-        fill:currentColor
+      & * {
+        margin: 0 2px;
+        fill: currentColor;
       }
-      & svg{
-        background:#eee;
-        height:22px;
-        width:auto;
+      & svg {
+        background: #eee;
+        height: 22px;
+        width: auto;
       }
     }
   }
@@ -47,7 +46,7 @@ const baseStyle = `
 class CodeBlock extends React.Component {
   constructor(props) {
     super(props);
-    this.handleRef = this.handleRef.bind(this);
+    this.node = React.createRef();
   }
 
   componentDidMount() {
@@ -88,7 +87,7 @@ class CodeBlock extends React.Component {
   }
 
   highlightCode() {
-    const nodes = this.node.querySelectorAll("pre code");
+    const nodes = this.node.current.querySelectorAll("pre code");
 
     Array.from(nodes).forEach(node => {
       hljs.highlightBlock(node);
@@ -96,7 +95,7 @@ class CodeBlock extends React.Component {
   }
 
   codeToClipboard() {
-    const nodes = this.node.querySelectorAll("pre");
+    const nodes = this.node.current.querySelectorAll("pre");
 
     Array.from(nodes).forEach(node => {
       const newNode = this.createNewNode(node);
@@ -121,29 +120,24 @@ class CodeBlock extends React.Component {
     return div;
   }
 
-  handleRef(node) {
-    this.node = node;
-  }
-
   render() {
     const { children, element, innerHTML } = this.props;
-    const Element = styled[element]
-      ? styled[element]`
-          ${baseStyle};
-        `
-      : styled.div`
-          ${baseStyle};
-        `;
+    const as = styled[element] ? element :"div";
 
     if (innerHTML) {
       return (
         <Element
-          innerRef={this.handleRef}
+          as={as}
+          ref={this.node}
           dangerouslySetInnerHTML={{ __html: children }}
         />
       );
     } else {
-      return <Element innerRef={this.handleRef}>{children}</Element>;
+      return (
+        <Element as={as} ref={this.node}>
+          {children}
+        </Element>
+      );
     }
   }
 }
@@ -153,7 +147,7 @@ CodeBlock.defaultProps = {
   element: "div",
   innerHtml: false,
   highlight: false,
-  onCopy: () => null
+  onCopy: () => null,
 };
 
 export default CodeBlock;
