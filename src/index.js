@@ -51,23 +51,25 @@ class CodeBlock extends React.Component {
 
   componentDidMount() {
     const { onCopy } = this.props;
-    window.copyToClipBoard = node => {
-      node = node ? node : {};
-      const text =
-        node.parentNode && node.parentNode.querySelector("code").innerText;
-      let textarea = document.createElement("textarea");
-      textarea.id = "t";
-      textarea.style.height = 0;
-      document.body.appendChild(textarea);
-      textarea.value = text;
-      let selector = document.querySelector("#t");
-      selector.select();
-      if (document.execCommand) {
-        document.execCommand("copy");
-      }
-      document.body.removeChild(textarea);
-      onCopy();
-    };
+    if (window && document) {
+      window.copyToClipBoard = node => {
+        node = node ? node : {};
+        const text =
+          node.parentNode && node.parentNode.querySelector("code").innerText;
+        let textarea = document.createElement("textarea");
+        textarea.id = "t";
+        textarea.style.height = 0;
+        document.body.appendChild(textarea);
+        textarea.value = text;
+        let selector = document.querySelector("#t");
+        selector.select();
+        if (document.execCommand) {
+          document.execCommand("copy");
+        }
+        document.body.removeChild(textarea);
+        onCopy();
+      };
+    }
     this.updateComponent();
   }
 
@@ -122,7 +124,7 @@ class CodeBlock extends React.Component {
 
   render() {
     const { children, element, innerHTML } = this.props;
-    const as = styled[element] ? element :"div";
+    const as = styled[element] ? element : "div";
 
     if (innerHTML) {
       return (

@@ -3405,22 +3405,24 @@ var CodeBlock = function (_React$Component) {
     value: function componentDidMount() {
       var onCopy = this.props.onCopy;
 
-      window.copyToClipBoard = function (node) {
-        node = node ? node : {};
-        var text = node.parentNode && node.parentNode.querySelector("code").innerText;
-        var textarea = document.createElement("textarea");
-        textarea.id = "t";
-        textarea.style.height = 0;
-        document.body.appendChild(textarea);
-        textarea.value = text;
-        var selector = document.querySelector("#t");
-        selector.select();
-        if (document.execCommand) {
-          document.execCommand("copy");
-        }
-        document.body.removeChild(textarea);
-        onCopy();
-      };
+      if (window && document) {
+        window.copyToClipBoard = function (node) {
+          node = node ? node : {};
+          var text = node.parentNode && node.parentNode.querySelector("code").innerText;
+          var textarea = document.createElement("textarea");
+          textarea.id = "t";
+          textarea.style.height = 0;
+          document.body.appendChild(textarea);
+          textarea.value = text;
+          var selector = document.querySelector("#t");
+          selector.select();
+          if (document.execCommand) {
+            document.execCommand("copy");
+          }
+          document.body.removeChild(textarea);
+          onCopy();
+        };
+      }
       this.updateComponent();
     }
   }, {
