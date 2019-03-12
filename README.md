@@ -47,8 +47,9 @@ In lieu of a formal styleguide, please format your code using 'prettier' prior t
 
 ## Release History
 
+- 2.0.2 Fixed Webpack bug that was bundling React with component
 - 2.0.1 Make safer for SSR
-- 2.0.0 Update to latest version of react
+- 2.0.0 Update to react 16.6
 - 1.2.2 Remove react and react-dom as dependancy and put it as a peer-dependancy
 - 1.2.1 Remove webpack as dependancy and put it as a dev dependancy like it was always supposed to be
 - 1.2.0 onCopy prop that allows you to pass a function to run when the `copy button` is clicked
