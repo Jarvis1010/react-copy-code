@@ -123,7 +123,7 @@ class CodeBlock extends React.Component {
   }
 
   render() {
-    const { children, element, innerHTML } = this.props;
+    const { children, element, innerHTML, ...props } = this.props;
     const as = styled[element] ? element : "div";
 
     if (innerHTML) {
@@ -131,12 +131,13 @@ class CodeBlock extends React.Component {
         <Element
           as={as}
           ref={this.node}
+          {...props}
           dangerouslySetInnerHTML={{ __html: children }}
         />
       );
     } else {
       return (
-        <Element as={as} ref={this.node}>
+        <Element as={as} ref={this.node} {...props}>
           {children}
         </Element>
       );
