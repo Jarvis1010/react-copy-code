@@ -11,6 +11,7 @@ module.exports = {
     publicPath: "/dist/",
     umdNamedDefine: true,
   },
+  target: "node",
   module: {
     rules: [
       {

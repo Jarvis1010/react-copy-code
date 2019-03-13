@@ -47,6 +47,7 @@ In lieu of a formal styleguide, please format your code using 'prettier' prior t
 
 ## Release History
 
+- 2.0.5 Fixed issue that broke gatsby html build
 - 2.0.2 - 2.0.4 Fixed Webpack bug that was bundling React with component and other bug fixes
 - 2.0.1 Make safer for SSR
 - 2.0.0 Update to react 16.6
