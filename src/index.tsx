@@ -45,7 +45,7 @@ const Element = styled.div`
 
 export interface CodeBlockProps {
   children: any;
-  element: any;
+  element: keyof JSX.IntrinsicElements | React.ComponentType<any>;
   useInnerHtml: boolean;
   highlight: boolean;
   onCopy: Function;
@@ -56,7 +56,7 @@ class CodeBlock extends React.Component<CodeBlockProps, {}> {
   private node = React.createRef<HTMLDivElement>();
   static defaultProps: CodeBlockProps = {
     children: null,
-    element: "div",
+    element: "div" as keyof JSX.IntrinsicElements,
     useInnerHtml: false,
     highlight: false,
     onCopy: (): any => null
@@ -144,12 +144,14 @@ class CodeBlock extends React.Component<CodeBlockProps, {}> {
       highlight,
       ...props
     } = this.props;
-    const as = styled.hasOwnProperty(element) ? element : "div";
+    const el = styled.hasOwnProperty(element as string)
+      ? element
+      : ("div" as keyof JSX.IntrinsicElements);
 
     if (useInnerHtml) {
       return (
         <Element
-          as={as}
+          as={el}
           ref={this.node}
           {...props}
           dangerouslySetInnerHTML={{ __html: children }}
@@ -157,7 +159,7 @@ class CodeBlock extends React.Component<CodeBlockProps, {}> {
       );
     } else {
       return (
-        <Element as={as} ref={this.node} {...props}>
+        <Element as={el} ref={this.node} {...props}>
           {children}
         </Element>
       );

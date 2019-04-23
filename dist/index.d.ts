@@ -1,7 +1,7 @@
 import * as React from "react";
 export interface CodeBlockProps {
     children: any;
-    element: any;
+    element: keyof JSX.IntrinsicElements | React.ComponentType<any>;
     useInnerHtml: boolean;
     highlight: boolean;
     onCopy: Function;

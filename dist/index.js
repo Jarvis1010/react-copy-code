@@ -122,12 +122,14 @@ class CodeBlock extends React.Component {
     }
     render() {
         const _a = this.props, { children, element, useInnerHtml, onCopy, highlight } = _a, props = __rest(_a, ["children", "element", "useInnerHtml", "onCopy", "highlight"]);
-        const as = styled_components_1.default.hasOwnProperty(element) ? element : "div";
+        const el = styled_components_1.default.hasOwnProperty(element)
+            ? element
+            : "div";
         if (useInnerHtml) {
-            return (React.createElement(Element, Object.assign({ as: as, ref: this.node }, props, { dangerouslySetInnerHTML: { __html: children } })));
+            return (React.createElement(Element, Object.assign({ as: el, ref: this.node }, props, { dangerouslySetInnerHTML: { __html: children } })));
         }
         else {
-            return (React.createElement(Element, Object.assign({ as: as, ref: this.node }, props), children));
+            return (React.createElement(Element, Object.assign({ as: el, ref: this.node }, props), children));
         }
     }
 }
