@@ -5,7 +5,7 @@ export interface CodeBlockProps {
     useInnerHtml: boolean;
     highlight: boolean;
     onCopy: Function;
-    svg?: any;
+    svg?: React.ComponentType<any>;
 }
 declare class CodeBlock extends React.Component<CodeBlockProps, {}> {
     private node;
