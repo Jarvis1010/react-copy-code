@@ -19,7 +19,7 @@ const Element = styled.div`
     }
 
     & button {
-      npmax-width: 150px;
+      max-width: 150px;
       height: auto;
       border: none;
       display: none;
