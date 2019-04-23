@@ -1,9 +1,9 @@
 const { JSDOM } = require("jsdom");
 
 const jsdom = new JSDOM("<!doctype html><html><body></body></html>");
-const { window } = jsdom;
+const { window: domWindow } = jsdom;
 
-function copyProps(src, target) {
+function copyProps(src: any, target: any) {
   const props = Object.getOwnPropertyNames(src)
     .filter(prop => typeof target[prop] === "undefined")
     .reduce(
@@ -16,9 +16,9 @@ function copyProps(src, target) {
   Object.defineProperties(target, props);
 }
 
-global.window = window;
-global.document = window.document;
-global.navigator = {
+(global as any)["window"] = domWindow;
+(global as any)["document"] = domWindow.document;
+(global as any)["navigator"] = {
   userAgent: "node.js"
 };
-copyProps(window, global);
+copyProps(domWindow, global);

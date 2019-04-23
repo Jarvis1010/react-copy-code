@@ -9,9 +9,9 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const react_1 = require("react");
+const React = require("react");
 const server_1 = require("react-dom/server");
-const highlight_js_1 = require("highlight.js");
+const hljs = require("highlight.js");
 const styled_components_1 = require("styled-components");
 const clipboardIcon_1 = require("./clipboardIcon");
 const Element = styled_components_1.default.div `
@@ -52,10 +52,10 @@ const Element = styled_components_1.default.div `
     }
   }
 `;
-class CodeBlock extends react_1.default.Component {
+class CodeBlock extends React.Component {
     constructor() {
         super(...arguments);
-        this.node = react_1.default.createRef();
+        this.node = React.createRef();
     }
     componentDidMount() {
         const { onCopy } = this.props;
@@ -94,7 +94,7 @@ class CodeBlock extends react_1.default.Component {
     highlightCode() {
         const nodes = this.node.current.querySelectorAll("pre code");
         Array.from(nodes).forEach(node => {
-            highlight_js_1.default.highlightBlock(node);
+            hljs.highlightBlock(node);
         });
     }
     codeToClipboard() {
@@ -107,7 +107,7 @@ class CodeBlock extends react_1.default.Component {
     }
     createNewNode(node) {
         const { svg: SVG } = this.props;
-        const iconToRender = SVG ? server_1.renderToString(react_1.default.createElement(SVG, null)) : clipboardIcon_1.default;
+        const iconToRender = SVG ? server_1.renderToString(React.createElement(SVG, null)) : clipboardIcon_1.default;
         const button = document.createElement("button");
         const div = document.createElement("div");
         const span = document.createElement("span");
@@ -124,10 +124,10 @@ class CodeBlock extends react_1.default.Component {
         const _a = this.props, { children, element, useInnerHtml, onCopy, highlight } = _a, props = __rest(_a, ["children", "element", "useInnerHtml", "onCopy", "highlight"]);
         const as = styled_components_1.default.hasOwnProperty(element) ? element : "div";
         if (useInnerHtml) {
-            return (react_1.default.createElement(Element, Object.assign({ as: as, ref: this.node }, props, { dangerouslySetInnerHTML: { __html: children } })));
+            return (React.createElement(Element, Object.assign({ as: as, ref: this.node }, props, { dangerouslySetInnerHTML: { __html: children } })));
         }
         else {
-            return (react_1.default.createElement(Element, Object.assign({ as: as, ref: this.node }, props), children));
+            return (React.createElement(Element, Object.assign({ as: as, ref: this.node }, props), children));
         }
     }
 }

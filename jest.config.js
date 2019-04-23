@@ -2,11 +2,9 @@ module.exports = {
   verbose: true,
   notify: true,
   notifyMode: "always",
-  transform: {
-    "^.+\\.tsx?$": "ts-jest"
-  },
+  preset: "ts-jest",
   setupFiles: [
-    "<rootDir>/test-config/enzyme.js",
-    "<rootDir>/test-config/jsdom.js"
+    "<rootDir>/test-config/enzyme.ts",
+    "<rootDir>/test-config/jsdom.ts"
   ]
 };

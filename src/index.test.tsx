@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import toJSON from "enzyme-to-json";
 import { mount } from "enzyme";
 import CodeBlock from "./index";
@@ -10,7 +10,11 @@ const greeting = (greet = 'Hello') => (name = 'World') => {
   };
 `;
 
-const JSXBlock = ({ code }) => (
+export interface JSXBlockProps {
+  code: string;
+}
+
+const JSXBlock = ({ code }: JSXBlockProps) => (
   <pre>
     <code>{code}</code>
   </pre>
@@ -111,8 +115,8 @@ describe("Copy to code", () => {
       </CodeBlock>
     );
 
-    window.copyToClipBoard();
-    expect(spy.mock.calls).toBe(1);
+    (window as any)["copyToClipBoard"]();
+    expect(spy.mock.calls.length).toBe(1);
     wrapper.unmount();
   });
 });

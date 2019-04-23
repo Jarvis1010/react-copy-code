@@ -1,6 +1,6 @@
-import React from "react";
+import * as React from "react";
 import { renderToString } from "react-dom/server";
-import hljs from "highlight.js";
+import * as hljs from "highlight.js";
 import styled from "styled-components";
 import icon from "./clipboardIcon";
 
