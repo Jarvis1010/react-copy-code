@@ -19,7 +19,7 @@ const Element = styled.div`
     }
 
     & button {
-      max-width: 150px;
+      npmax-width: 150px;
       height: auto;
       border: none;
       display: none;
@@ -43,25 +43,38 @@ const Element = styled.div`
   }
 `;
 
-class CodeBlock extends React.Component {
-  constructor(props) {
-    super(props);
-    this.node = React.createRef();
-  }
+export interface CodeBlockProps {
+  children: any;
+  element: any;
+  useInnerHtml: boolean;
+  highlight: boolean;
+  onCopy: Function;
+  svg?: any;
+}
+
+class CodeBlock extends React.Component<CodeBlockProps, {}> {
+  private node = React.createRef<HTMLDivElement>();
+  static defaultProps: CodeBlockProps = {
+    children: null,
+    element: "div",
+    useInnerHtml: false,
+    highlight: false,
+    onCopy: (): any => null
+  };
 
   componentDidMount() {
     const { onCopy } = this.props;
     if (window && document) {
-      window.copyToClipBoard = node => {
+      (window as any)["copyToClipBoard"] = (node: any) => {
         node = node ? node : {};
         const text =
           node.parentNode && node.parentNode.querySelector("code").innerText;
         let textarea = document.createElement("textarea");
         textarea.id = "t";
-        textarea.style.height = 0;
+        textarea.style.height = "0";
         document.body.appendChild(textarea);
         textarea.value = text;
-        let selector = document.querySelector("#t");
+        let selector = document.querySelector("#t") as HTMLInputElement;
         selector.select();
         if (document.execCommand) {
           document.execCommand("copy");
@@ -78,7 +91,7 @@ class CodeBlock extends React.Component {
   }
 
   componentWillUnmount() {
-    window.copyToClipBoard = undefined;
+    (window as any)["copyToClipBoard"] = undefined;
   }
 
   updateComponent() {
@@ -106,7 +119,7 @@ class CodeBlock extends React.Component {
     });
   }
 
-  createNewNode(node) {
+  createNewNode(node: HTMLElement) {
     const { svg: SVG } = this.props;
     const iconToRender = SVG ? renderToString(<SVG />) : icon;
     const button = document.createElement("button");
@@ -123,10 +136,17 @@ class CodeBlock extends React.Component {
   }
 
   render() {
-    const { children, element, innerHTML, ...props } = this.props;
-    const as = styled[element] ? element : "div";
+    const {
+      children,
+      element,
+      useInnerHtml,
+      onCopy,
+      highlight,
+      ...props
+    } = this.props;
+    const as = styled.hasOwnProperty(element) ? element : "div";
 
-    if (innerHTML) {
+    if (useInnerHtml) {
       return (
         <Element
           as={as}
@@ -144,13 +164,5 @@ class CodeBlock extends React.Component {
     }
   }
 }
-
-CodeBlock.defaultProps = {
-  children: null,
-  element: "div",
-  innerHtml: false,
-  highlight: false,
-  onCopy: () => null,
-};
 
 export default CodeBlock;

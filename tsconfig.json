@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "./dist",
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "outDir": "./dist",
+    "target": "es6",
+    "jsx": "react",
+    "allowSyntheticDefaultImports": true
+  },
+  "files": ["./src/index.tsx"]
+}

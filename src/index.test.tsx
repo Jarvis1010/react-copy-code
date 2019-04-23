@@ -1,7 +1,6 @@
 import React from "react";
-import sinon from "sinon";
 import toJSON from "enzyme-to-json";
-import { shallow, mount, render } from "enzyme";
+import { mount } from "enzyme";
 import CodeBlock from "./index";
 import "jest-styled-components";
 
@@ -105,7 +104,7 @@ describe("Copy to code", () => {
   });
 
   it("calls onCopy function", () => {
-    const spy = sinon.spy();
+    const spy = jest.fn();
     const wrapper = mount(
       <CodeBlock onCopy={spy}>
         <JSXBlock code={code} />
@@ -113,21 +112,21 @@ describe("Copy to code", () => {
     );
 
     window.copyToClipBoard();
-    expect(spy.calledOnce).toBe(true);
+    expect(spy.mock.calls).toBe(1);
     wrapper.unmount();
   });
 });
 
-describe("Copy to code with innerHtml", () => {
+describe("Copy to code with useInnerHtml", () => {
   it("Renders component", () => {
-    const wrapper = mount(<CodeBlock innerHtml>{stringBlock}</CodeBlock>);
+    const wrapper = mount(<CodeBlock useInnerHtml>{stringBlock}</CodeBlock>);
     expect(toJSON(wrapper)).toMatchSnapshot();
     wrapper.unmount();
   });
 
   it("Renders component with highlight", () => {
     const wrapper = mount(
-      <CodeBlock highlight innerHtml>
+      <CodeBlock highlight useInnerHtml>
         {stringBlock}
       </CodeBlock>
     );
