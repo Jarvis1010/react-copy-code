@@ -24,7 +24,7 @@ exports[`Copy to code Renders component with JSX 1`] = `
 }
 
 .c0 .clipWrapper button {
-  npmax-width: 150px;
+  max-width: 150px;
   height: auto;
   border: none;
   display: none;
@@ -51,16 +51,12 @@ exports[`Copy to code Renders component with JSX 1`] = `
 }
 
 <CodeBlock
-  element="div"
   highlight={false}
+  innerHtml={false}
   onCopy={[Function]}
-  useInnerHtml={false}
 >
-  <styled.div
-    as="div"
-  >
+  <styled.div>
     <StyledComponent
-      as="div"
       forwardedComponent={
         Object {
           "$$typeof": Symbol(react.forward_ref),
@@ -85,7 +81,7 @@ exports[`Copy to code Renders component with JSX 1`] = `
     }
 
     & button {
-      npmax-width: 150px;
+      max-width: 150px;
       height: auto;
       border: none;
       display: none;
@@ -145,7 +141,7 @@ exports[`Copy to code Renders component with JSX 1`] = `
 }
 
 .c0 .clipWrapper button {
-  npmax-width: 150px;
+  max-width: 150px;
   height: auto;
   border: none;
   display: none;
@@ -318,7 +314,7 @@ exports[`Copy to code Renders component with highlight 1`] = `
 }
 
 .c0 .clipWrapper button {
-  npmax-width: 150px;
+  max-width: 150px;
   height: auto;
   border: none;
   display: none;
@@ -345,16 +341,12 @@ exports[`Copy to code Renders component with highlight 1`] = `
 }
 
 <CodeBlock
-  element="div"
   highlight={true}
+  innerHtml={false}
   onCopy={[Function]}
-  useInnerHtml={false}
 >
-  <styled.div
-    as="div"
-  >
+  <styled.div>
     <StyledComponent
-      as="div"
       forwardedComponent={
         Object {
           "$$typeof": Symbol(react.forward_ref),
@@ -379,7 +371,7 @@ exports[`Copy to code Renders component with highlight 1`] = `
     }
 
     & button {
-      npmax-width: 150px;
+      max-width: 150px;
       height: auto;
       border: none;
       display: none;
@@ -439,7 +431,7 @@ exports[`Copy to code Renders component with highlight 1`] = `
 }
 
 .c0 .clipWrapper button {
-  npmax-width: 150px;
+  max-width: 150px;
   height: auto;
   border: none;
   display: none;
@@ -631,7 +623,7 @@ const greeting = (greet = 'Hello') =&gt; (name = 'World') =&gt; {
 </CodeBlock>
 `;
 
-exports[`Copy to code with useInnerHtml Renders component 1`] = `
+exports[`Copy to code with innerHtml Renders component 1`] = `
 .c0 .clipWrapper {
   display: -webkit-box;
   display: -webkit-flex;
@@ -655,7 +647,7 @@ exports[`Copy to code with useInnerHtml Renders component 1`] = `
 }
 
 .c0 .clipWrapper button {
-  npmax-width: 150px;
+  max-width: 150px;
   height: auto;
   border: none;
   display: none;
@@ -682,13 +674,11 @@ exports[`Copy to code with useInnerHtml Renders component 1`] = `
 }
 
 <CodeBlock
-  element="div"
   highlight={false}
+  innerHtml={true}
   onCopy={[Function]}
-  useInnerHtml={true}
 >
   <styled.div
-    as="div"
     dangerouslySetInnerHTML={
       Object {
         "__html": "<pre><code>
@@ -700,7 +690,6 @@ const greeting = (greet = 'Hello') => (name = 'World') => {
     }
   >
     <StyledComponent
-      as="div"
       dangerouslySetInnerHTML={
         Object {
           "__html": "<pre><code>
@@ -734,7 +723,7 @@ const greeting = (greet = 'Hello') => (name = 'World') => {
     }
 
     & button {
-      npmax-width: 150px;
+      max-width: 150px;
       height: auto;
       border: none;
       display: none;
@@ -794,7 +783,7 @@ const greeting = (greet = 'Hello') => (name = 'World') => {
 }
 
 .c0 .clipWrapper button {
-  npmax-width: 150px;
+  max-width: 150px;
   height: auto;
   border: none;
   display: none;
@@ -934,7 +923,7 @@ const greeting = (greet = 'Hello') => (name = 'World') => {
 </CodeBlock>
 `;
 
-exports[`Copy to code with useInnerHtml Renders component with highlight 1`] = `
+exports[`Copy to code with innerHtml Renders component with highlight 1`] = `
 .c0 .clipWrapper {
   display: -webkit-box;
   display: -webkit-flex;
@@ -958,7 +947,7 @@ exports[`Copy to code with useInnerHtml Renders component with highlight 1`] = `
 }
 
 .c0 .clipWrapper button {
-  npmax-width: 150px;
+  max-width: 150px;
   height: auto;
   border: none;
   display: none;
@@ -985,13 +974,11 @@ exports[`Copy to code with useInnerHtml Renders component with highlight 1`] = `
 }
 
 <CodeBlock
-  element="div"
   highlight={true}
+  innerHtml={true}
   onCopy={[Function]}
-  useInnerHtml={true}
 >
   <styled.div
-    as="div"
     dangerouslySetInnerHTML={
       Object {
         "__html": "<pre><code>
@@ -1003,7 +990,6 @@ const greeting = (greet = 'Hello') => (name = 'World') => {
     }
   >
     <StyledComponent
-      as="div"
       dangerouslySetInnerHTML={
         Object {
           "__html": "<pre><code>
@@ -1037,7 +1023,7 @@ const greeting = (greet = 'Hello') => (name = 'World') => {
     }
 
     & button {
-      npmax-width: 150px;
+      max-width: 150px;
       height: auto;
       border: none;
       display: none;
@@ -1097,7 +1083,7 @@ const greeting = (greet = 'Hello') => (name = 'World') => {
 }
 
 .c0 .clipWrapper button {
-  npmax-width: 150px;
+  max-width: 150px;
   height: auto;
   border: none;
   display: none;

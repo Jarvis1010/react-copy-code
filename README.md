@@ -33,13 +33,13 @@ const App = () => (
 
 ## Props
 
-| name      |      type      | default | description                                                                                                                                                                                     |
-| --------- | :------------: | :-----: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| element   |     string     |  "div"  | Allows you to specify which element the component renders as                                                                                                                                    |
-| innerHTML |      bool      |  false  | If this is set to true, it is expecting the html string to be passed as the only child. **Warning**: uses dangerouslySetInnerHTML so be sure you trust the source                               |
-| highlight |      bool      |  false  | If this is set to true, It will use highlight.js to add classes that correspond to highlight.js css theme. Checkout [documentation](https://highlightjs.org/) for highlight.js for more details |
-| svg       | ReactComponent |  null   | Allows you to pass in any SVG based React Component as the button icon                                                                                                                          |
-| onCopy    |    function    |  no-op  | Allows you to pass in a function to run when the copy button is clicked                                                                                                                         |
+| name      |         type          | default | description                                                                                                                                                                                     |
+| --------- | :-------------------: | :-----: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| element   | JSX intrinsic Element |  "div"  | Allows you to specify which element the component renders as                                                                                                                                    |
+| innerHtml |         bool          |  false  | If this is set to true, it is expecting the html string to be passed as the only child. **Warning**: uses dangerouslySetInnerHTML so be sure you trust the source                               |
+| highlight |         bool          |  false  | If this is set to true, It will use highlight.js to add classes that correspond to highlight.js css theme. Checkout [documentation](https://highlightjs.org/) for highlight.js for more details |
+| svg       |    ReactComponent     |  null   | Allows you to pass in any SVG based React Component as the button icon                                                                                                                          |
+| onCopy    |       function        |  no-op  | Allows you to pass in a function to run when the copy button is clicked                                                                                                                         |
 
 ## Contributing
 
@@ -47,6 +47,7 @@ In lieu of a formal styleguide, please format your code using 'prettier' prior t
 
 ## Release History
 
+- 2.1.2 Bug fix for innerHtml, update types and documentation
 - 2.1.1 Bug fixes
 - 2.1.0 Changed to TypeScript
 - 2.0.5 Fixed issue that broke gatsby html build

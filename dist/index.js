@@ -29,7 +29,7 @@ const Element = styled_components_1.default.div `
     }
 
     & button {
-      npmax-width: 150px;
+      max-width: 150px;
       height: auto;
       border: none;
       display: none;
@@ -60,18 +60,18 @@ class CodeBlock extends React.Component {
     componentDidMount() {
         const { onCopy } = this.props;
         if (window && document) {
-            window["copyToClipBoard"] = (node) => {
+            window['copyToClipBoard'] = (node) => {
                 node = node ? node : {};
-                const text = node.parentNode && node.parentNode.querySelector("code").innerText;
-                let textarea = document.createElement("textarea");
-                textarea.id = "t";
-                textarea.style.height = "0";
+                const text = node.parentNode && node.parentNode.querySelector('code').innerText;
+                let textarea = document.createElement('textarea');
+                textarea.id = 't';
+                textarea.style.height = '0';
                 document.body.appendChild(textarea);
                 textarea.value = text;
-                let selector = document.querySelector("#t");
+                let selector = document.querySelector('#t');
                 selector.select();
                 if (document.execCommand) {
-                    document.execCommand("copy");
+                    document.execCommand('copy');
                 }
                 document.body.removeChild(textarea);
                 onCopy();
@@ -83,7 +83,7 @@ class CodeBlock extends React.Component {
         this.updateComponent();
     }
     componentWillUnmount() {
-        window["copyToClipBoard"] = undefined;
+        window['copyToClipBoard'] = undefined;
     }
     updateComponent() {
         this.codeToClipboard();
@@ -92,13 +92,13 @@ class CodeBlock extends React.Component {
         }
     }
     highlightCode() {
-        const nodes = this.node.current.querySelectorAll("pre code");
+        const nodes = this.node.current.querySelectorAll('pre code');
         Array.from(nodes).forEach(node => {
             hljs.highlightBlock(node);
         });
     }
     codeToClipboard() {
-        const nodes = this.node.current.querySelectorAll("pre");
+        const nodes = this.node.current.querySelectorAll('pre');
         Array.from(nodes).forEach(node => {
             const newNode = this.createNewNode(node);
             const parent = node.parentNode;
@@ -108,36 +108,32 @@ class CodeBlock extends React.Component {
     createNewNode(node) {
         const { svg: SVG } = this.props;
         const iconToRender = SVG ? server_1.renderToString(React.createElement(SVG, null)) : clipboardIcon_1.default;
-        const button = document.createElement("button");
-        const div = document.createElement("div");
-        const span = document.createElement("span");
-        div.className = "clipWrapper";
-        span.innerText = "Copy";
+        const button = document.createElement('button');
+        const div = document.createElement('div');
+        const span = document.createElement('span');
+        div.className = 'clipWrapper';
+        span.innerText = 'Copy';
         button.innerHTML = iconToRender;
         button.appendChild(span);
-        button.setAttribute("onclick", `copyToClipBoard(this)`);
+        button.setAttribute('onclick', `copyToClipBoard(this)`);
         div.appendChild(button);
         div.appendChild(node.cloneNode(true));
         return div;
     }
     render() {
         const _a = this.props, { children, element, useInnerHtml, onCopy, highlight } = _a, props = __rest(_a, ["children", "element", "useInnerHtml", "onCopy", "highlight"]);
-        const el = styled_components_1.default.hasOwnProperty(element)
-            ? element
-            : "div";
         if (useInnerHtml) {
-            return (React.createElement(Element, Object.assign({ as: el, ref: this.node }, props, { dangerouslySetInnerHTML: { __html: children } })));
+            return (React.createElement(Element, Object.assign({ as: element, ref: this.node }, props, { dangerouslySetInnerHTML: { __html: children } })));
         }
         else {
-            return (React.createElement(Element, Object.assign({ as: el, ref: this.node }, props), children));
+            return (React.createElement(Element, Object.assign({ as: element, ref: this.node }, props), children));
         }
     }
 }
 CodeBlock.defaultProps = {
     children: null,
-    element: "div",
     useInnerHtml: false,
     highlight: false,
-    onCopy: () => null
+    onCopy: () => null,
 };
 exports.default = CodeBlock;

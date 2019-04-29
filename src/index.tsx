@@ -1,8 +1,8 @@
-import * as React from "react";
-import { renderToString } from "react-dom/server";
-import * as hljs from "highlight.js";
-import styled from "styled-components";
-import icon from "./clipboardIcon";
+import * as React from 'react';
+import { renderToString } from 'react-dom/server';
+import * as hljs from 'highlight.js';
+import styled from 'styled-components';
+import icon from './clipboardIcon';
 
 const Element = styled.div`
   & .clipWrapper {
@@ -44,11 +44,11 @@ const Element = styled.div`
 `;
 
 export interface CodeBlockProps {
-  children: any;
-  element: keyof JSX.IntrinsicElements | React.ComponentType<any>;
-  useInnerHtml: boolean;
+  children: React.ReactNode;
+  innerHtml: boolean;
   highlight: boolean;
   onCopy: Function;
+  element?: keyof JSX.IntrinsicElements;
   svg?: React.ComponentType<any>;
 }
 
@@ -56,28 +56,27 @@ class CodeBlock extends React.Component<CodeBlockProps, {}> {
   private node = React.createRef<HTMLDivElement>();
   static defaultProps: CodeBlockProps = {
     children: null,
-    element: "div" as keyof JSX.IntrinsicElements,
-    useInnerHtml: false,
+    innerHtml: false,
     highlight: false,
-    onCopy: (): any => null
+    onCopy: (): any => null,
   };
 
   componentDidMount() {
     const { onCopy } = this.props;
     if (window && document) {
-      (window as any)["copyToClipBoard"] = (node: any) => {
+      (window as any)['copyToClipBoard'] = (node: any) => {
         node = node ? node : {};
         const text =
-          node.parentNode && node.parentNode.querySelector("code").innerText;
-        let textarea = document.createElement("textarea");
-        textarea.id = "t";
-        textarea.style.height = "0";
+          node.parentNode && node.parentNode.querySelector('code').innerText;
+        let textarea = document.createElement('textarea');
+        textarea.id = 't';
+        textarea.style.height = '0';
         document.body.appendChild(textarea);
         textarea.value = text;
-        let selector = document.querySelector("#t") as HTMLInputElement;
+        let selector = document.querySelector('#t') as HTMLInputElement;
         selector.select();
         if (document.execCommand) {
-          document.execCommand("copy");
+          document.execCommand('copy');
         }
         document.body.removeChild(textarea);
         onCopy();
@@ -91,7 +90,7 @@ class CodeBlock extends React.Component<CodeBlockProps, {}> {
   }
 
   componentWillUnmount() {
-    (window as any)["copyToClipBoard"] = undefined;
+    (window as any)['copyToClipBoard'] = undefined;
   }
 
   updateComponent() {
@@ -102,7 +101,7 @@ class CodeBlock extends React.Component<CodeBlockProps, {}> {
   }
 
   highlightCode() {
-    const nodes = this.node.current.querySelectorAll("pre code");
+    const nodes = this.node.current.querySelectorAll('pre code');
 
     Array.from(nodes).forEach(node => {
       hljs.highlightBlock(node);
@@ -110,7 +109,7 @@ class CodeBlock extends React.Component<CodeBlockProps, {}> {
   }
 
   codeToClipboard() {
-    const nodes = this.node.current.querySelectorAll("pre");
+    const nodes = this.node.current.querySelectorAll('pre');
 
     Array.from(nodes).forEach(node => {
       const newNode = this.createNewNode(node);
@@ -122,14 +121,14 @@ class CodeBlock extends React.Component<CodeBlockProps, {}> {
   createNewNode(node: HTMLElement) {
     const { svg: SVG } = this.props;
     const iconToRender = SVG ? renderToString(<SVG />) : icon;
-    const button = document.createElement("button");
-    const div = document.createElement("div");
-    const span = document.createElement("span");
-    div.className = "clipWrapper";
-    span.innerText = "Copy";
+    const button = document.createElement('button');
+    const div = document.createElement('div');
+    const span = document.createElement('span');
+    div.className = 'clipWrapper';
+    span.innerText = 'Copy';
     button.innerHTML = iconToRender;
     button.appendChild(span);
-    button.setAttribute("onclick", `copyToClipBoard(this)`);
+    button.setAttribute('onclick', `copyToClipBoard(this)`);
     div.appendChild(button);
     div.appendChild(node.cloneNode(true));
     return div;
@@ -139,27 +138,24 @@ class CodeBlock extends React.Component<CodeBlockProps, {}> {
     const {
       children,
       element,
-      useInnerHtml,
+      innerHtml,
       onCopy,
       highlight,
       ...props
     } = this.props;
-    const el = styled.hasOwnProperty(element as string)
-      ? element
-      : ("div" as keyof JSX.IntrinsicElements);
 
-    if (useInnerHtml) {
+    if (innerHtml) {
       return (
         <Element
-          as={el}
+          as={element}
           ref={this.node}
           {...props}
-          dangerouslySetInnerHTML={{ __html: children }}
+          dangerouslySetInnerHTML={{ __html: children as string }}
         />
       );
     } else {
       return (
-        <Element as={el} ref={this.node} {...props}>
+        <Element as={element} ref={this.node} {...props}>
           {children}
         </Element>
       );
