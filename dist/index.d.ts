@@ -1,10 +1,10 @@
 import * as React from 'react';
 export interface CodeBlockProps {
-    children: any;
-    element?: keyof JSX.IntrinsicElements | React.ComponentType<any>;
-    useInnerHtml: boolean;
+    children: React.ReactNode;
+    innerHtml: boolean;
     highlight: boolean;
     onCopy: Function;
+    element?: keyof JSX.IntrinsicElements;
     svg?: React.ComponentType<any>;
 }
 declare class CodeBlock extends React.Component<CodeBlockProps, {}> {

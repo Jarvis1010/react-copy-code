@@ -121,8 +121,8 @@ class CodeBlock extends React.Component {
         return div;
     }
     render() {
-        const _a = this.props, { children, element, useInnerHtml, onCopy, highlight } = _a, props = __rest(_a, ["children", "element", "useInnerHtml", "onCopy", "highlight"]);
-        if (useInnerHtml) {
+        const _a = this.props, { children, element, innerHtml, onCopy, highlight } = _a, props = __rest(_a, ["children", "element", "innerHtml", "onCopy", "highlight"]);
+        if (innerHtml) {
             return (React.createElement(Element, Object.assign({ as: element, ref: this.node }, props, { dangerouslySetInnerHTML: { __html: children } })));
         }
         else {
@@ -132,7 +132,7 @@ class CodeBlock extends React.Component {
 }
 CodeBlock.defaultProps = {
     children: null,
-    useInnerHtml: false,
+    innerHtml: false,
     highlight: false,
     onCopy: () => null,
 };
