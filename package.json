@@ -33,7 +33,7 @@
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.10.0",
     "enzyme-to-json": "^3.3.5",
-    "highlight.js": "^9.15.6",
+    "highlight.js": "^10.1.2",
     "jest": "^24.7.1",
     "jest-styled-components": "^6.3.1",
     "jsdom": "^14.0.0",
